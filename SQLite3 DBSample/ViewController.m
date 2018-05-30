@@ -14,6 +14,8 @@
 @property (nonatomic, strong) DBManager *dbManager;
 @property (nonatomic, strong) NSArray *arrPeopleInfo;
 
+@property (nonatomic) int recordIDToEdit;
+
 -(void)loadData;
 
 @end
@@ -35,6 +37,10 @@
 }
 
 -(void)addNewRecord:(UIBarButtonItem *)sender {
+    // before performing the seque. set -1 value
+    self.recordIDToEdit = -1;
+    
+    // perform the seque
     [self performSegueWithIdentifier:@"idSegueEditInfo" sender:self];
 }
 
@@ -86,6 +92,14 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
+    // Get the record ID
+    self.recordIDToEdit = [[[self.arrPeopleInfo objectAtIndex:indexPath.row] objectAtIndex:0] intValue];
+    
+    // perform the seque
+    [self performSegueWithIdentifier:@"idSegueEditInfo" sender:self];
+}
+
 -(void)editingInfoWasFinished {
     // Reload the data
     [self loadData];
@@ -94,6 +108,7 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     EditInfoViewController *eiVC = [segue destinationViewController];
     eiVC.selfDelegate = self;
+    eiVC.recordIDToEdit = self.recordIDToEdit;
 }
 
 @end
