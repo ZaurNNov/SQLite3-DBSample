@@ -16,6 +16,7 @@
 		CE7E187520BD6E1C00C1F19B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7E187420BD6E1C00C1F19B /* main.m */; };
 		CE7E187D20BD6EBB00C1F19B /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7E187C20BD6EBB00C1F19B /* libsqlite3.tbd */; };
 		CE7E188020BD6F2200C1F19B /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7E187F20BD6F2200C1F19B /* DBManager.m */; };
+		CEE898D420BEB7C40069F913 /* sampledb.sql in Resources */ = {isa = PBXBuildFile; fileRef = CE7841DA20BE76B200C56EA3 /* sampledb.sql */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -152,6 +153,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEE898D420BEB7C40069F913 /* sampledb.sql in Resources */,
 				CE7E187220BD6E1C00C1F19B /* LaunchScreen.storyboard in Resources */,
 				CE7E186F20BD6E1C00C1F19B /* Assets.xcassets in Resources */,
 				CE7E186D20BD6E1A00C1F19B /* Main.storyboard in Resources */,
