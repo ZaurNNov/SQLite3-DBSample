@@ -26,7 +26,7 @@
 }
 
 -(void)addNewRecord:(UIBarButtonItem *)sender {
-    
+    [self performSegueWithIdentifier:@"idSegueEditInfo" sender:self];
 }
 
 
