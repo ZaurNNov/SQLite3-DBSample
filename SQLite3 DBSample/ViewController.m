@@ -100,6 +100,25 @@
     [self performSegueWithIdentifier:@"idSegueEditInfo" sender:self];
 }
 
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // delete the selected record
+        // find the record
+        int recordIDToDelete = [[[self.arrPeopleInfo objectAtIndex:indexPath.row] objectAtIndex:0] intValue];
+        
+        // Prepare the query
+        NSString *query = [NSString stringWithFormat:@"delete from peopleInfoID=%d", recordIDToDelete];
+        
+        // Execute the query
+        [self.dbManager executeQuery:query];
+        
+        // reload the tableView
+        [self loadData];
+        
+    }
+}
+
 -(void)editingInfoWasFinished {
     // Reload the data
     [self loadData];
