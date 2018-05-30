@@ -9,9 +9,12 @@
 #import "EditInfoViewController.h"
 #import "DBManager.h"
 
+
+
 @interface EditInfoViewController ()
 
 @property (nonatomic, strong) DBManager *dbManager;
+
 
 @end
 
@@ -46,6 +49,9 @@
     if (self.dbManager.affectedRows != 0) {
         NSLog(@"Query was executed successfully. Affected rows = %d", self.dbManager.affectedRows);
         
+        // Inform the delegate that the editing was finished
+        [self.selfDelegate editingInfoWasFinished];
+        
         // Pop the view controller.
         [self.navigationController popViewControllerAnimated:YES];
     }
@@ -53,5 +59,7 @@
         NSLog(@"Could not execute the query.");
     }
 }
+
+
 
 @end

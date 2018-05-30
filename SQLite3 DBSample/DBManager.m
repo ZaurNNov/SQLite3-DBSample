@@ -35,6 +35,7 @@
     
     self.databaseFilename = dbFilename;
     [self copyDatabaseIntoDocumentsDirectory];
+    NSLog(@"DocumentsDirectory: %@", self.documentsDirectory);
     
     return self;
 }

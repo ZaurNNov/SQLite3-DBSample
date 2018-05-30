@@ -14,7 +14,14 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtLastname;
 @property (weak, nonatomic) IBOutlet UITextField *txtAge;
 
+@property (nonatomic, strong) id<EditInfoViewControllerDelegate> selfDelegate;
+
 - (IBAction)saveInfo:(UIBarButtonItem *)sender;
 
+@end
+
+@protocol EditInfoViewControllerDelegate
+
+-(void)editingInfoWasFinished;
 
 @end
